@@ -212,7 +212,8 @@ Implemented and verified through Week 10:
 - Retry
 - Selenium Grid
 - Docker Selenium Grid
-- Git & GitHub
+- Git & 
+
 
 ## Jenkins CI / Pipeline
 
@@ -220,11 +221,12 @@ The framework is integrated with Jenkins for automated CI execution.
 
 ### Jenkins Job
 
-Current Jenkins job:
+Current Jenkins jobs:
 
-SeleniumBDDFramework-CI
+- SeleniumBDDFramework-CI — Freestyle CI job
+- SeleniumBDDFramework-Pipeline — Pipeline job
 
-The job supports:
+The Jenkins setup supports:
 
 - GitHub SCM checkout
 - Browser parameter
@@ -274,9 +276,9 @@ reports/cucumber/cucumber.html
 
 ### Jenkinsfile
 
-A Jenkinsfile has been added to the project root for Pipeline-as-Code.
+The project contains a Jenkinsfile at the repository root for Pipeline-as-Code.
 
-The Jenkinsfile currently defines:
+The Jenkinsfile defines:
 
 - Browser parameter
 - Execution parameter
@@ -287,3 +289,5 @@ The Jenkinsfile currently defines:
 - Success/failure handling
 
 The Jenkinsfile is version-controlled with the framework in GitHub.
+
+Pipeline execution has been successfully verified through Jenkins.
