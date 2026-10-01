@@ -213,3 +213,77 @@ Implemented and verified through Week 10:
 - Selenium Grid
 - Docker Selenium Grid
 - Git & GitHub
+
+## Jenkins CI / Pipeline
+
+The framework is integrated with Jenkins for automated CI execution.
+
+### Jenkins Job
+
+Current Jenkins job:
+
+SeleniumBDDFramework-CI
+
+The job supports:
+
+- GitHub SCM checkout
+- Browser parameter
+- Execution parameter
+- Maven test execution
+- Local / Selenium Grid execution
+- Scheduled builds
+- Poll SCM
+- Cucumber HTML report archiving
+
+### Build Parameters
+
+BROWSER:
+- chrome
+- firefox
+- edge
+
+EXECUTION:
+- local
+- grid
+
+Build command:
+
+mvnw.cmd clean test -Pqa -Dbrowser=%BROWSER% -Dexecution=%EXECUTION%
+
+### Scheduled Build
+
+Configured schedule:
+
+0 23 * * *
+
+Runs daily at 11:00 PM.
+
+### Poll SCM
+
+Configured polling:
+
+H/5 * * * *
+
+Jenkins checks the Git repository approximately every 5 minutes for changes.
+
+### Jenkins Artifact
+
+Archived report:
+
+reports/cucumber/cucumber.html
+
+### Jenkinsfile
+
+A Jenkinsfile has been added to the project root for Pipeline-as-Code.
+
+The Jenkinsfile currently defines:
+
+- Browser parameter
+- Execution parameter
+- Scheduled build
+- Poll SCM
+- Maven test execution
+- Cucumber report artifact archiving
+- Success/failure handling
+
+The Jenkinsfile is version-controlled with the framework in GitHub.
