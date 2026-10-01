@@ -1,8 +1,8 @@
 # Selenium BDD Automation Framework
 
-A Java-based Selenium BDD automation framework built using Selenium WebDriver, Cucumber, TestNG and Maven.
+A Java-based Selenium BDD automation framework built with Selenium WebDriver, Cucumber, TestNG and Maven.
 
-The framework supports local and Selenium Grid execution across Chrome, Firefox and Edge, with parallel scenario execution and Docker-based Grid infrastructure.
+The framework supports local and remote browser execution across Chrome, Firefox and Edge, including parallel execution and Docker-based Selenium Grid.
 
 ## Tech Stack
 
@@ -12,27 +12,30 @@ The framework supports local and Selenium Grid execution across Chrome, Firefox 
 - TestNG
 - Maven
 - Selenium Grid 4.49.0
-- Docker & Docker Compose
+- Docker / Docker Compose
 - Apache POI
 - Log4j2
-- Git & GitHub
+- Git / GitHub
 
-## Framework Features
+## Features
 
 - Cucumber BDD
 - Page Object Model
 - TestNG parallel execution
 - ThreadLocal WebDriver management
-- Chrome / Firefox / Edge support
-- Local and Grid execution
+- Chrome / Firefox / Edge
+- Local execution
+- Selenium Grid execution
 - Docker Selenium Grid
 - Configuration-driven execution
 - Excel test data
 - Logging
 - Retry mechanism
-- Cucumber HTML reports
+- Cucumber HTML reporting
 
 ## Architecture
+
+### Local Execution
 
 ```text
 Feature
@@ -50,10 +53,11 @@ WebDriver
 Page Objects
    ↓
 Application
+```
 
-````
-## For Grid execution:
+### Grid Execution
 
+```text
 DriverFactory
       ↓
 RemoteWebDriver
@@ -61,8 +65,11 @@ RemoteWebDriver
 Selenium Grid
       ↓
 Chrome / Firefox / Edge Nodes
+```
 
-````##Project Structure
+## Project Structure
+
+```text
 src/test/java
 ├── context
 ├── framework
@@ -89,27 +96,82 @@ testng.xml
 mvnw
 mvnw.cmd
 .gitignore
-
-````
-```##Run Tests
--Local Chrome: .\mvnw.cmd clean test -Pqa -Dbrowser=chrome -Dexecution=local
-
--Selenium Grid - Chrome: .\mvnw.cmd clean test -Pqa -Dbrowser=chrome -Dexecution=grid
-
--Selenium Grid - Firefox : .\mvnw.cmd clean test -Pqa -Dbrowser=firefox -Dexecution=grid
-
--Selenium Grid - Edge : .\mvnw.cmd clean test -Pqa -Dbrowser=edge -Dexecution=grid
-
 ```
-```##Docker Selenium Grid
--Start Grid: docker compose up -d
--Check containers: docker compose ps
--Stop containers: docker compose stop
--Remove containers and network: docker compose down
 
+## Test Execution
+
+Run Maven commands from:
+
+```text
+C:\Users\ankit\IdeaProjects\SeleniumBDDFramework
 ```
-````##Design Principles
-The framework currently follows:
+
+### Local Chrome
+
+```cmd
+.\mvnw.cmd clean test -Pqa -Dbrowser=chrome -Dexecution=local
+```
+
+### Selenium Grid - Chrome
+
+```cmd
+.\mvnw.cmd clean test -Pqa -Dbrowser=chrome -Dexecution=grid
+```
+
+### Selenium Grid - Firefox
+
+```cmd
+.\mvnw.cmd clean test -Pqa -Dbrowser=firefox -Dexecution=grid
+```
+
+### Selenium Grid - Edge
+
+```cmd
+.\mvnw.cmd clean test -Pqa -Dbrowser=edge -Dexecution=grid
+```
+
+## Docker Selenium Grid
+
+Docker Compose configuration:
+
+```text
+C:\Docker\selenium-grid
+```
+
+Start Grid:
+
+```cmd
+docker compose up -d
+```
+
+Check containers:
+
+```cmd
+docker compose ps
+```
+
+Stop containers:
+
+```cmd
+docker compose stop
+```
+
+Remove containers and network:
+
+```cmd
+docker compose down
+```
+
+Grid UI:
+
+```text
+http://localhost:4444/ui/
+```
+
+## Design Principles
+
+The framework currently applies:
+
 - Single Responsibility Principle
 - Open/Closed Principle
 - Interface Segregation Principle
@@ -118,3 +180,36 @@ The framework currently follows:
 - Factory-based driver creation
 - Constructor-based dependency injection
 - ThreadLocal-based test isolation
+
+## Automated Flows
+
+- Login
+- Products
+- Cart
+- Checkout
+
+**Application Under Test:** SauceDemo
+
+## Reports
+
+Cucumber HTML report:
+
+```text
+reports/cucumber/cucumber.html
+```
+
+## Current Status
+
+Implemented and verified through Week 10:
+
+- Selenium BDD
+- Cucumber + TestNG
+- Page Object Model
+- Driver Factory
+- ThreadLocal
+- Test Data
+- Logging
+- Retry
+- Selenium Grid
+- Docker Selenium Grid
+- Git & GitHub
