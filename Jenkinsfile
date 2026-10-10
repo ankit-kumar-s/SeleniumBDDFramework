@@ -33,10 +33,9 @@ pipeline {
     post {
 
         always {
+            allure results: [[path: 'allure-results']]
             archiveArtifacts(
-                artifacts: 'reports/cucumber/cucumber.html',
-                allowEmptyArchive: true
-            )
+                artifacts: 'reports/cucumber/cucumber.html', allowEmptyArchive: true )
         }
 
         success {
