@@ -38,6 +38,7 @@ public class CartSteps {
     public void userShouldSeeProductInTheCart() {
         TestData testData = testContext.getTestData();
 
-        Assert.assertTrue(cartPage.isProductDisplayed(testData.getProductName()), "Expected product is not displayed in the cart");
+        Assert.assertTrue(cartPage.isProductDisplayed(testData.getProductName()),
+                "Expected product is not displayed in the cart");
     }
 }
